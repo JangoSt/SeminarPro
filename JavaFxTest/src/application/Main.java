@@ -11,7 +11,7 @@ import javafx.stage.StageStyle;
 
 public class Main extends Application {
 	public static Scene scene;
-	public static Object root;
+	public static Parent root;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -20,7 +20,7 @@ public class Main extends Application {
 			Main.scene = new Scene((Parent) root);
 			//scene.setFill(Color.TRANSPARENT);
 			primaryStage.initStyle(StageStyle.DECORATED);
-			primaryStage.setScene(scene);	
+			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
