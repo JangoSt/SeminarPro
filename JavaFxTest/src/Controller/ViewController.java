@@ -48,8 +48,9 @@ public class ViewController implements Initializable {
     @FXML
     private Box BoxRotate;
     @FXML
-    private ScrollBar scrollBarBox;
-    
+    private ScrollBar scrollBarBoxHor;
+    @FXML
+    private ScrollBar scrollBarBoxVer;
     
 	boolean round = false;
 
@@ -72,17 +73,28 @@ public class ViewController implements Initializable {
 			}
 		});
 		/*Rotate Box*/
-		scrollBarBox.valueProperty().addListener(new ChangeListener<Number>() {
+		
+		scrollBarBoxHor.valueProperty().addListener(new ChangeListener<Number>() {
 
 			@Override
 			public void changed(ObservableValue<? extends Number> observable,
 					Number oldValue, Number newValue) {
 				labelDegree.setText(scrollBarRotateLabel.getValue()+"");
-				BoxRotate.getTransforms().clear();
-				//BoxRotate.setTranslateX((double)newValue);
-				//BoxRotate.setTranslateX((double)newValue);
-	
-			BoxRotate.getTransforms().add(new Rotate((double)newValue));
+
+				BoxRotate.setRotationAxis(new Point3D(1,1,  0));
+				BoxRotate.setRotate((double)newValue);
+
+			}
+		});
+		scrollBarBoxVer.valueProperty().addListener(new ChangeListener<Number>() {
+
+			@Override
+			public void changed(ObservableValue<? extends Number> observable,
+					Number oldValue, Number newValue) {
+
+				BoxRotate.setRotationAxis(new Point3D(1,1,  0));
+				BoxRotate.setRotate((double)newValue);
+
 			}
 		});
 		
