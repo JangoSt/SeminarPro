@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
@@ -76,7 +77,10 @@
                      <children>
                         <ScrollBar fx:id="scrollBarBox" layoutY="192.0" max="180.0" min="-180.0" prefHeight="14.0" prefWidth="411.0" />
                         <PerspectiveCamera layoutX="26.0" layoutY="14.0" />
-                        <Box fx:id="BoxRotate" cullFace="FRONT" depth="100.0" drawMode="LINE" height="100.0" layoutX="206.0" layoutY="87.0" width="100.0" />
+                        <Box fx:id="BoxRotate" depth="100.0" height="100.0" layoutX="206.0" layoutY="87.0" rotate="45.0" width="100.0">
+                           <rotationAxis>
+                              <Point3D y="4.0" z="1.0" />
+                           </rotationAxis></Box>
                      </children>
                   </AnchorPane>
               </content>

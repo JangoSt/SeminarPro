@@ -80,8 +80,7 @@ public class ViewController implements Initializable {
 				labelDegree.setText(scrollBarRotateLabel.getValue()+"");
 				BoxRotate.getTransforms().clear();
 				//BoxRotate.setTranslateX((double)newValue);
-				BoxRotate.setTranslateX((double)newValue);
-				BoxRotate.setRotationAxis(new Point3D(BoxRotate.getLayoutX(), BoxRotate.getLayoutY(), 0));
+				//BoxRotate.setTranslateX((double)newValue);
 	
 			BoxRotate.getTransforms().add(new Rotate((double)newValue));
 			}
