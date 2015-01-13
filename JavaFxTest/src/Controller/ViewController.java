@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.swing.ImageIcon;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -11,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,14 +20,14 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.TableView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
-import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 import application.Main;
 
-import com.sun.prism.paint.Color;
 
 public class ViewController implements Initializable {
 	@FXML
@@ -61,42 +62,29 @@ public class ViewController implements Initializable {
 		ViewChoiceBox.getItems().addAll("dark", "default");
 		ViewChoiceBox.getSelectionModel().selectFirst();
 		
-		/*Rotate Label*/
-		scrollBarRotateLabel.valueProperty().addListener(new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {
-				labelDegree.setText(scrollBarRotateLabel.getValue()+"");
-				labelMovedItem.getTransforms().clear();
-				labelMovedItem.getTransforms().add(new Rotate((double)newValue));
-			}
-		});
-		/*Rotate Box*/
+		final PhongMaterial appMaterial = new PhongMaterial();
+		Image image = new Image("image/javafx_logo.png"); 
+		appMaterial.setDiffuseMap(image);
+		appMaterial.setDiffuseColor(Color.ALICEBLUE);
+        BoxRotate.setMaterial(appMaterial);
 		
-		scrollBarBoxHor.valueProperty().addListener(new ChangeListener<Number>() {
+		/*Rotate Label*/
 
-			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {
-				labelDegree.setText(scrollBarRotateLabel.getValue()+"");
 
-				BoxRotate.setRotationAxis(new Point3D(1,1,  0));
-				BoxRotate.setRotate((double)newValue);
-
-			}
+		/*Rotate Box*/
+     
+        scrollBarBoxHor.valueProperty().addListener((listener)->{
+		BoxRotate.getTransforms().add(
+				new Rotate((double) scrollBarBoxHor.getValue(),Rotate.Z_AXIS));
+				scrollBarBoxHor.setValue(0);		
 		});
-		scrollBarBoxVer.valueProperty().addListener(new ChangeListener<Number>() {
-
-			@Override
-			public void changed(ObservableValue<? extends Number> observable,
-					Number oldValue, Number newValue) {
-
-				BoxRotate.setRotationAxis(new Point3D(1,1,  0));
-				BoxRotate.setRotate((double)newValue);
-
-			}
-		});
+				
+        scrollBarBoxVer.valueProperty().addListener((listener)->{
+			BoxRotate.getTransforms().add(
+					new Rotate((double) scrollBarBoxVer.getValue(),Rotate.Y_AXIS));
+			scrollBarBoxVer.setValue(0);
+		
+	});
 		
 		
 	}

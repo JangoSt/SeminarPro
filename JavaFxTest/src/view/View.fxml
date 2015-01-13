@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
@@ -75,13 +76,14 @@
               <content>
                 <AnchorPane fx:id="CubeAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ScrollBar fx:id="scrollBarBoxHor" layoutY="192.0" max="180.0" min="-180.0" prefHeight="14.0" prefWidth="403.0" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #AAAAAA;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Box fx:id="BoxRotate" depth="100.0" height="100.0" layoutX="206.0" layoutY="152.0" width="100.0" />
+                           </children>
+                        </AnchorPane>
+                        <ScrollBar fx:id="scrollBarBoxHor" layoutY="192.0" max="10.0" min="-10.0" prefHeight="14.0" prefWidth="403.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" />
                         <PerspectiveCamera layoutX="26.0" layoutY="14.0" />
-                        <Box fx:id="BoxRotate" depth="100.0" height="100.0" layoutX="206.0" layoutY="87.0" rotate="45.0" width="100.0">
-                           <rotationAxis>
-                              <Point3D x="1.0" y="1.0" />
-                           </rotationAxis></Box>
-                        <ScrollBar fx:id="scrollBarBoxVer" layoutX="390.0" max="180.0" min="-180.0" orientation="VERTICAL" prefHeight="192.0" prefWidth="14.0" />
+                        <ScrollBar fx:id="scrollBarBoxVer" layoutX="390.0" max="10.0" min="-10.0" orientation="VERTICAL" prefHeight="192.0" prefWidth="14.0" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
               </content>

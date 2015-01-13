@@ -1,0 +1,30 @@
+*{
+	darkblue: #123456;
+}
+#main{
+	-fx-background-color: #444444;
+}
+#menu { 
+	-fx-background-color: darkblue;
+	}
+#menu  .context-menu{
+	-fx-background-color: darkblue;
+}
+#choiceBox{
+	-fx-background-color: darkblue;
+	-fx-border-color: white;
+}
+#choiceBox .label{
+	-fx-text-fill: white;
+}
+#choiceBox .context-menu { 
+	-fx-background-color: darkblue;
+}
+.button{
+	-fx-background-color: black;
+	-fx-text-fill: white;
+	-fx-border-color: white;
+}
+.label{
+	-fx-text-fill: white;
+}
